@@ -40,18 +40,19 @@ export default function CalculatorInput({
   setCopiedLink,
 }: CalculatorInputProps) {
   
+  // Sửa lại các hàm xử lý tăng/giảm số lượng
   const handleMemberIncrement = () => {
-    setMemberCount((prev) => (prev < 15 ? prev + 1 : prev));
+    if (memberCount < 15) setMemberCount(memberCount + 1);
   };
   const handleMemberDecrement = () => {
-    setMemberCount((prev) => (prev > 1 ? prev - 1 : prev));
+    if (memberCount > 1) setMemberCount(memberCount - 1);
   };
 
   const handleAlreadyIncrement = () => {
-    setAlreadyRenewedCount((prev) => (prev < 10 ? prev + 1 : prev));
+    if (alreadyRenewedCount < 10) setAlreadyRenewedCount(alreadyRenewedCount + 1);
   };
   const handleAlreadyDecrement = () => {
-    setAlreadyRenewedCount((prev) => (prev > 0 ? prev - 1 : prev));
+    if (alreadyRenewedCount > 0) setAlreadyRenewedCount(alreadyRenewedCount - 1);
   };
 
   const copyToClipboard = () => {

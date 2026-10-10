@@ -31,7 +31,7 @@ export default function HeaderBanner() {
   ];
 
   return (
-    <header className="bg-white border-b border-slate-200 sticky shadow-sm font-sans">
+    <header className="w-full bg-white border-b border-slate-200 font-sans">
       {/* 1. DẢI BANNER TIÊU ĐỀ PHỤ THƯƠNG HIỆU BƯU ĐIỆN VÀ ĐỊA BÀN XÃ */}
       <div className="bg-amber-500 text-white text-[11px] py-1.5 px-4">
         <div className="container mx-auto max-w-7xl flex flex-col sm:flex-row justify-between items-center gap-1">

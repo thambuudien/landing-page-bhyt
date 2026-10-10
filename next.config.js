@@ -41,6 +41,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/muc-dong-bhxh-tu-nguyen',
+        destination: '/tinh-luong-huu-bhxh',
+        permanent: true,
+      },
+      {
         source: '/cau-chuyen-that',
         destination: '/links',
         permanent: true,

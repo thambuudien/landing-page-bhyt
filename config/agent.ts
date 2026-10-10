@@ -13,7 +13,7 @@ export const AGENT_CONFIG = {
     zaloNumber: "0978333963",
     phoneDisplay: "0978 333 963",
     email: "hotro@hotham.vn",
-    website: "www.hotham.vn",
+    website: "https://www.hotham.vn",
   },
 
   seo: {

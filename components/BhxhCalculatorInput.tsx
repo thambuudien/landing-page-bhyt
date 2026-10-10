@@ -31,6 +31,19 @@ export default function BhxhCalculatorInput({
   setCopied,
 }: BhxhCalculatorInputProps) {
 
+  // Danh sách các mốc thu nhập gợi ý phổ biến để bà con bấm chọn nhanh
+  // Danh sách các mốc thu nhập gợi ý phổ biến để bà con bấm chọn nhanh
+  const suggestedIncomes = [
+    1500000,
+    3000000,
+    5000000,
+    8000000,
+    10000000,
+    15000000,
+    20000000,
+    30000000,
+  ];
+
   const handleCopy = () => {
     const supportText = 
       supportType === 'chinh_sach_100' 
@@ -39,7 +52,7 @@ export default function BhxhCalculatorInput({
           ? 'Cựu chiến binh, Cựu quân nhân/CAND/TNXP tại Hà Nội (Được hỗ trợ 50%)' 
           : 'Đối tượng khác tại Hà Nội (Nhà nước 20% + TP hỗ trợ 20% = Hỗ trợ 40%)';
 
-    const text = `Dự tính BHXH Tự Nguyện - Chị Hồ Thị Thắm gửi bạn:\n- Mức thu nhập lựa chọn: ${formatVnd(incomeChoice)}/tháng\n- Nhóm đối tượng ưu đãi: ${supportText}\n- Số tiền nộp thực tế đợt này: ${formatVnd(netPayload.netPay)}/tháng\nLiên hệ tư vấn đóng tiếp BHXH tự nguyện trực tuyến qua Zalo chị Thắm: ${AGENT_CONFIG.contact.phoneDisplay}`;
+    const text = `Dự tính BHXH Tự Nguyện - Đại lý chị Hồ Thị Thắm gửi bạn:\n- Mức thu nhập lựa chọn: ${formatVnd(incomeChoice)}/tháng\n- Nhóm đối tượng: ${supportText}\n- Số tiền nộp thực tế đợt này: ${formatVnd(netPayload.netPay)}/tháng\n- Lương hưu dự kiến nhận (Mốc đóng 15 năm): ${formatVnd(netPayload.pension)}/tháng\nLiên hệ tư vấn làm sổ BHXH trực tuyến qua Zalo chị Thắm: ${AGENT_CONFIG.contact.phoneDisplay}`;
     
     navigator.clipboard.writeText(text);
     setCopied(true);
@@ -53,8 +66,8 @@ export default function BhxhCalculatorInput({
         <h5>Thông số tham gia BHXH</h5>
       </div>
 
-      {/* 1. THANH TRƯỢT CHỌN THU NHẬP ĐÓNG ĐỘNG */}
-      <div className="space-y-2">
+      {/* 1. THANH TRƯỢT VÀ NÚT BẤM GỢI Ý THU NHẬP ĐÓNG ĐỘNG */}
+      <div className="space-y-3">
         <div className="flex justify-between items-center">
           <label className="flex items-center gap-1.5 font-bold text-slate-700 uppercase tracking-wide">
             <Wallet className="w-3.5 h-3.5 text-slate-400 shrink-0" /> Mức thu nhập căn cứ đóng:
@@ -64,18 +77,43 @@ export default function BhxhCalculatorInput({
           </span>
         </div>
         
+        {/* ĐÃ CẬP NHẬT: Mức trần thanh kéo mở rộng kịch khung lên mốc 50.600.000 đ theo lương cơ sở mới */}
         <input 
           type="range"
           min="1500000"
-          max="20000000"
-          step="500000"
+          max="50600000"
+          step="50000"
           value={incomeChoice}
           onChange={(e) => setIncomeChoice(parseInt(e.target.value) || 1500000)}
           className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600 focus:outline-none"
         />
-        <div className="flex justify-between text-[10px] text-slate-400 font-medium">
+        <div className="flex justify-between text-[10px] text-slate-400 font-medium border-b pb-2">
           <span>Thấp nhất: {formatVnd(1500000)}</span>
-          <span>Tối đa: {formatVnd(20000000)}</span>
+          <span>Tối đa: {formatVnd(50600000)}</span>
+        </div>
+
+        {/* MỚI BỔ SUNG: Hàng nút bấm chọn nhanh các mốc thu nhập gợi ý */}
+        <div className="space-y-1.5">
+          <p className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Chọn nhanh mức thu nhập gợi ý:</p>
+          <div className="flex flex-wrap gap-1.5">
+            {suggestedIncomes.map((income) => {
+              const isSelected = incomeChoice === income;
+              return (
+                <button
+                  key={income}
+                  type="button"
+                  onClick={() => setIncomeChoice(income)}
+                  className={`px-2 py-1.5 rounded-xl font-mono font-bold text-[11px] border transition-all duration-150 ${
+                    isSelected
+                      ? 'bg-blue-50 text-blue-700 border-blue-400 shadow-sm'
+                      : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
+                  }`}
+                >
+                  {income === 1500000 ? 'Mức Sàn' : formatVnd(income).replace(' đ', '')}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
 
@@ -102,7 +140,7 @@ export default function BhxhCalculatorInput({
         </div>
       </div>
 
-      {/* 3. PHÂN LOẠI 3 NHÓM ĐỐI TƯỢNG ƯU ĐÃI ĐẶC THÙ THEO CHÍNH SÁCH HÀ NỘI */}
+      {/* 3. PHAN LOẠI NHÓM ĐỐI TƯỢNG ƯU ĐÃI ĐẶC THÙ THEO CHÍNH SÁCH HÀ NỘI */}
       <div className="space-y-1.5">
         <label className="flex items-center gap-1.5 font-bold text-slate-700 uppercase tracking-wide">
           <Users className="w-3.5 h-3.5 text-slate-400 shrink-0" /> Nhóm ưu đãi chính sách đặc thù Hà Nội:
@@ -150,7 +188,7 @@ export default function BhxhCalculatorInput({
           </>
         ) : (
           <>
-            <Calculator className="w-3.5 h-3.5" />
+            <Copy className="w-3.5 h-3.5" />
             <span>Sao chép bảng tính gửi Zalo bà con</span>
           </>
         )}

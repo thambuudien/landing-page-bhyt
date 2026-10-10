@@ -46,10 +46,19 @@ export default function LinkInBioPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-indigo-950 text-slate-200 font-sans flex flex-col justify-between antialiased">
       <main className="w-full max-w-md mx-auto px-4 pt-12 pb-6 flex-1 flex flex-col justify-center items-center">
-        <div className="text-center space-y-2.5 mb-8">
-          <div className="w-16 h-16 rounded-2xl bg-amber-500 text-white font-black text-3xl flex items-center justify-center shadow-lg shadow-amber-500/20 mx-auto tracking-tight select-none">
-            T
+        
+        {/* KHỐI NHẬN DIỆN THƯƠNG HIỆU CHỊ HỒ THỊ THẮM - ĐÃ ĐỔI SANG LOGO.PNG */}
+        <div className="text-center space-y-3 mb-8">
+          <div className="relative w-16 h-16 mx-auto overflow-hidden rounded-2xl shadow-lg border border-white/10 bg-white/5 p-1 flex items-center justify-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src="/logo.png" 
+              alt={`Logo Đại lý Bưu điện ${AGENT_CONFIG.agentName}`}
+              className="w-full h-full object-contain rounded-xl select-none"
+              loading="eager"
+            />
           </div>
+          
           <div className="space-y-0.5">
             <h2 className="text-lg font-black tracking-tight text-white uppercase">
               ĐẠI LÝ BƯU ĐIỆN {AGENT_CONFIG.agentName}
@@ -63,6 +72,7 @@ export default function LinkInBioPage() {
           </p>
         </div>
 
+        {/* KHỐI CÁC NÚT ĐIỀU HƯỚNG */}
         <div className="w-full space-y-3.5">
           {actionLinks.map((link, idx) => (
             <a

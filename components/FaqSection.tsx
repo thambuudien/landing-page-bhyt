@@ -15,13 +15,13 @@ export default function FaqSection() {
       question:
         "Quyền lợi '5 năm liên tục' là gì và tại sao không được để thẻ quá hạn?",
       answer:
-        'Khi tham gia BHYT đủ 5 năm liên tục trở lên và có số tiền cùng chi trả chi phí khám chữa bệnh trong năm lớn hơn 6 tháng lương cơ sở, bạn sẽ được quỹ BHYT thanh toán 100% chi phí khám chữa bệnh đúng tuyến. Nếu bạn để thẻ quá hạn trên 3 tháng (90 ngày), chuỗi thời gian liên tục này sẽ bị ngắt và phải tích lũy lại từ đầu.',
+        'Khi tham gia BHYT đủ 5 năm liên tục trở lên và có số tiền cùng chi trả chi phí khám chữa bệnh trong năm lớn hơn 6 tháng lương cơ sở, bạn sẽ được quỹ BHYT thanh toán 100% chi phí khám chữa bệnh đúng tuyến. Nếu bạn để thẻ quá hạn trên 90 ngày, chuỗi thời gian liên tục này sẽ bị ngắt và phải tích lũy lại từ đầu.',
     },
     {
       question:
         'Đăng ký nhắc hạn ở đây có mất phí không? Tôi gia hạn online bằng cách nào?',
       answer:
-        'Dịch vụ đăng ký nhắc lịch và tra cứu hoàn toàn miễn phí vì đây là cổng công ích của Đại lý bưu điện xã Tiến Thắng. Khi nhận được thông báo sắp hết hạn, bạn chỉ cần gửi ảnh chụp thẻ cũ hoặc CCCD qua Zalo chị Thắm (0978333963), chuyển khoản học phí đóng bảo hiểm và nhận biên lai bưu điện gửi về tận nhà mà không cần đi lại.',
+        'Dịch vụ đăng ký nhắc lịch và tra cứu hoàn toàn miễn phí vì đây là kênh hỗ trợ miễn phí của chị Hồ Thị Thắm. Khi nhận được thông báo sắp hết hạn, bạn chỉ cần gửi ảnh chụp thẻ cũ hoặc CCCD qua Zalo chị Thắm (0978333963), chuyển khoản tiền đóng bảo hiểm và nhận biên lai điện tử gửi qua Zalo mà không cần đi lại.',
     },
     {
       question:
@@ -33,7 +33,7 @@ export default function FaqSection() {
       question:
         'Nếu thẻ BHYT của tôi đã lỡ hết hạn, đóng tiền muộn thì bao lâu mới dùng lại được?',
       answer:
-        'Nếu thẻ đã quá hạn, khi bạn đóng tiền gia hạn muộn thì thẻ BHYT sẽ không có giá trị sử dụng ngay lập tức. Theo quy định, thẻ của bạn sẽ phải chờ đợi đúng 30 ngày kể từ ngày đóng tiền bưu điện cập nhật hệ thống thì mới có giá trị khám chữa bệnh trở lại.',
+        'Nếu thẻ hết hạn quá 90 ngày, khi bạn đóng tiền gia hạn muộn thì thẻ BHYT sẽ không có giá trị sử dụng ngay lập tức. Theo quy định, thẻ của bạn sẽ phải chờ đợi đúng 30 ngày kể từ ngày đóng tiền bưu điện cập nhật hệ thống thì mới có giá trị khám chữa bệnh trở lại.',
     },
   ];
 

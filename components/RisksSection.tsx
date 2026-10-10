@@ -15,14 +15,14 @@ export default function RisksSection() {
       icon: <ShieldAlert className="w-6 h-6 text-orange-600" />,
       title: "Mất Mốc '5 Năm Liên Tục'",
       description:
-        'Đây là thiệt thòi lớn nhất. Luật quy định nếu để thẻ quá hạn trên 3 tháng, toàn bộ thời gian tích lũy tham gia trước đó của bạn sẽ bị xóa bỏ. Bạn phải đóng lại từ đầu và chờ đợi thêm 5 năm nữa để được hưởng quyền lợi tối đa của thẻ liên tục.',
+        'Đây là thiệt thòi lớn nhất. Luật quy định nếu để thẻ quá hạn trên 90 ngày, toàn bộ thời gian tích lũy tham gia trước đó của bạn sẽ bị xóa bỏ. Bạn phải đóng lại từ đầu và chờ đợi thêm 5 năm nữa để được hưởng quyền lợi tối đa của thẻ liên tục.',
       badge: 'Mất quyền lợi tích lũy',
     },
     {
       icon: <Clock className="w-6 h-6 text-amber-600" />,
       title: 'Thời Gian Chờ Đợi 30 Ngày',
       description:
-        "Thẻ BHYT đóng muộn sau khi đã hết hạn sẽ không có giá trị sử dụng ngay. Bạn phải mất tới 30 ngày gián đoạn chờ đợi hệ thống phê duyệt thì thẻ mới có hiệu lực trở lại. Trong 30 ngày 'trống' này, gia đình bạn hoàn toàn không được bảo vệ.",
+        "Thẻ BHYT đóng muộn sau khi đã hết hạn quá 90 ngày sẽ không có giá trị sử dụng ngay. Bạn phải mất tới 30 ngày chờ thì thẻ mới có hiệu lực trở lại. Trong 30 ngày 'trống' này, gia đình bạn hoàn toàn không được bảo vệ.",
       badge: 'Thẻ không có tác dụng ngay',
     },
   ];

@@ -28,11 +28,6 @@ export default function HeaderBanner() {
       label: 'Tính Lương Hưu BHXH',
       icon: <Award className="w-3.5 h-3.5" />,
     },
-    {
-      path: '/tra-cuu-van-don',
-      label: 'Tra Cứu Vận Đơn',
-      icon: <Package className="w-3.5 h-3.5" />,
-    },
   ];
 
   return (

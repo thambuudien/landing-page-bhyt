@@ -8,7 +8,7 @@ const WP_GRAPHQL_MUTATION = `
       message
       record {
         id
-        fullName
+        fullName: hoTen
         createdAt
       }
     }
@@ -24,10 +24,10 @@ export async function POST(request: Request) {
       return NextResponse.json({ errors: [{ message: 'Thiếu dữ liệu bắt buộc.' }] }, { status: 400 });
     }
 
-    const targetEndpoint = process.env.WORDPRESS_GRAPHQL_URL || 'https://hotham.vn';
+    const targetEndpoint = process.env.WORDPRESS_GRAPHQL_URL || 'https://hotham.vn/wordpress/rYkOy1HCCRD0JZZcrshVYaUR39QfcG15QWUC437BMM5Pk3gNLu';
     const targetToken = process.env.WORDPRESS_AUTH_TOKEN;
 
-    const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+    const headers: Record<string, string> = { 'Content-Type': 'application/json', 'lws-hotham-secret-token' : 'f4e18c5d6c2645e5981a837904c7b8d3' };
     if (targetToken) headers['Authorization'] = targetToken;
 
     const wpResponse = await fetch(targetEndpoint, {

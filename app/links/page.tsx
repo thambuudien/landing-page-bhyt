@@ -87,7 +87,7 @@ export default function LinkInBioPage() {
 
         <div className="w-full mt-6 pt-5 border-t border-white/5 space-y-3">
           <a
-            href={`https://zalo.me{AGENT_CONFIG.contact.zaloNumber}`}
+            href={`https://zalo.me/${AGENT_CONFIG.contact.zaloNumber}`}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-bold py-2.5 rounded-xl text-xs uppercase tracking-wider text-center flex items-center justify-center gap-1.5 shadow-md shadow-blue-600/10 transition duration-150"

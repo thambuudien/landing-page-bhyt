@@ -3,7 +3,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image'; // Nạp thẻ tối ưu hóa hình ảnh của Next.js
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { AGENT_CONFIG } from '@/config/agent';
 import { Phone, Home, Calculator, Award, Package } from 'lucide-react';
@@ -11,7 +11,6 @@ import { Phone, Home, Calculator, Award, Package } from 'lucide-react';
 export default function HeaderBanner() {
   const pathname = usePathname();
 
-  // Cấu hình mảng định tuyến menu liên kết tập trung
   const navigationRoutes = [
     {
       path: '/',
@@ -31,7 +30,9 @@ export default function HeaderBanner() {
   ];
 
   return (
+    /* ĐÃ CẬP NHẬT: Loại bỏ toàn bộ thuộc tính sticky cố định theo yêu cầu của chị */
     <header className="w-full bg-white border-b border-slate-200 font-sans">
+      
       {/* 1. DẢI BANNER TIÊU ĐỀ PHỤ THƯƠNG HIỆU BƯU ĐIỆN VÀ ĐỊA BÀN XÃ */}
       <div className="bg-amber-500 text-white text-[11px] py-1.5 px-4">
         <div className="container mx-auto max-w-7xl flex flex-col sm:flex-row justify-between items-center gap-1">
@@ -45,19 +46,19 @@ export default function HeaderBanner() {
       {/* 2. KHU VỰC ĐIỀU HƯỚNG CHÍNH (MAIN NAVIGATION BAR) */}
       <div className="container mx-auto max-w-7xl px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
         
-        {/* LOGO ĐỒ HỌA MỚI ĐÃ TÍCH HỢP TỆP ANH LOGO.PNG */}
+        {/* LOGO ĐỒ HỌA TÍCH HỢP TỆP ẢNH LOGO.PNG */}
         <Link 
           href="/" 
           className="flex items-center gap-2.5 group shrink-0 text-center md:text-left"
         >
           <div className="relative w-9 h-9 overflow-hidden rounded-xl shadow-sm border border-slate-100 group-hover:scale-105 transition-transform duration-150 bg-slate-50 flex items-center justify-center">
-            <Image
-              src="/logo.png" // Đường dẫn trỏ tới tệp public/logo.png của chị
-              alt={`Logo Bưu điện Việt Nam VNPost - Đại lý ${AGENT_CONFIG.agentName}`}
-              width={36}
-              height={36}
-              priority // Ép trình duyệt ưu tiên tải ảnh logo này trước để tối ưu chỉ số CLS
+            <Image 
+              src="/logo.png" 
+              alt="Logo VNPost" 
+              width={36} 
+              height={36} 
               className="object-contain"
+              priority
             />
           </div>
           <div>
@@ -70,7 +71,7 @@ export default function HeaderBanner() {
           </div>
         </Link>
 
-        {/* MENU ĐIỀU HƯỚNG ĐƯỢC GIỮ NGUYÊN VẸN CƠ CHẾ ACTIVE */}
+        {/* MENU ĐIỀU HƯỚNG TỰ ĐỘNG CHUYỂN TRANG */}
         <nav className="flex flex-wrap justify-center items-center gap-1 sm:gap-2 text-xs">
           {navigationRoutes.map((route) => {
             const isActive = pathname === route.path;

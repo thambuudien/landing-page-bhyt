@@ -19,7 +19,7 @@ interface CalculatorInputProps {
   setAlreadyRenewedCount: (count: number) => void;
   durationMonths: 3 | 6 | 12;
   setDurationMonths: (months: 3 | 6 | 12) => void;
-  detailedRates: DetailedRateItem;
+  detailedRates: DetailedRateItem[]; // ĐÃ SỬA: Kiểu mảng DetailedRateItem[]
   grandTotal: number;
   formatVnd: (val: number) => string;
   copiedLink: boolean;
@@ -40,7 +40,6 @@ export default function CalculatorInput({
   setCopiedLink,
 }: CalculatorInputProps) {
   
-  // Tác vụ cụm nút 1: Tự động khóa ngầm mốc từ 1 đến 15 người
   const handleMemberIncrement = () => {
     setMemberCount((prev) => (prev < 15 ? prev + 1 : prev));
   };
@@ -48,7 +47,6 @@ export default function CalculatorInput({
     setMemberCount((prev) => (prev > 1 ? prev - 1 : prev));
   };
 
-  // Tác vụ cụm nút 2: Tự động khóa ngầm mốc từ 0 đến 10 người đóng trước
   const handleAlreadyIncrement = () => {
     setAlreadyRenewedCount((prev) => (prev < 10 ? prev + 1 : prev));
   };
@@ -64,7 +62,8 @@ export default function CalculatorInput({
 
     const dynamicShareUrl = `${AGENT_CONFIG.contact.website}/tinh-muc-dong-bhyt?tongNguoi=${memberCount}&daCoBHYT=${alreadyRenewedCount}&thoiHan=${durationMonths}`;
 
-    const text = `Dự toán phí BHYT Hộ gia đình từ Đại lý bưu điện chị Hồ Thị Thắm:\n- Số người gia hạn đợt này: ${memberCount} người\n- Số người đã đóng trước trong năm: ${alreadyRenewedCount} người\n- Thời hạn đóng: ${durationMonths} tháng\n\n📌 Chi tiết từng thành viên:\n${memberDetailsText}\n👉 Tổng số tiền cần nộp đợt này: ${formatVnd(grandTotal)}\n\n👉 Bạn có thể xem trực tiếp hoặc tự tính lại tại đây:\n${dynamicShareUrl}\n\nLiên hệ làm thủ tục gia hạn trực tuyến qua Zalo chị Thắm: ${AGENT_CONFIG.contact.phoneDisplay}`;
+    // ĐÃ SỬA: Gom chuỗi text liền mạch, loại bỏ các ký tự dấu gạch ngang lỗi
+    const text = `Dự toán phí BHYT Hộ gia đình từ Đại lý bưu điện chị Hồ Thị Thắm:\nSố người gia hạn đợt này: ${memberCount} người\nSố người đã đóng trước trong năm: ${alreadyRenewedCount} người\nThời hạn đóng: ${durationMonths} tháng\n\n📌 Chi tiết từng thành viên:\n${memberDetailsText}\n👉 Tổng số tiền cần nộp đợt này: ${formatVnd(grandTotal)}\n\n👉 Bạn có thể xem trực tiếp hoặc tự tính lại tại đây:\n${dynamicShareUrl}\n\nLiên hệ làm thủ tục gia hạn trực tuyến qua Zalo chị Thắm: ${AGENT_CONFIG.contact.phoneDisplay}`;
     
     navigator.clipboard.writeText(text);
     setCopiedLink(true);
@@ -78,7 +77,7 @@ export default function CalculatorInput({
         <h5>Thông số tính toán đợt này</h5>
       </div>
 
-      {/* CỤM NÚT 1: LUÔN HIỆN SẮC NÉT */}
+      {/* CỤM NÚT 1 */}
       <div className="space-y-2">
         <label className="flex items-center gap-1.5 font-bold text-slate-700 uppercase tracking-wide text-xs">
           <Users className="w-3.5 h-3.5 text-slate-400" /> Số người gia hạn đợt này:
@@ -110,7 +109,7 @@ export default function CalculatorInput({
         </div>
       </div>
 
-      {/* CỤM NÚT 2: LUÔN HIỆN SẮC NÉT */}
+      {/* CỤM NÚT 2 */}
       <div className="space-y-2">
         <label className="flex items-center gap-1.5 font-bold text-amber-700 uppercase tracking-wide text-xs">
           <UserCheck className="w-3.5 h-3.5 text-amber-500" /> Số người ĐÃ GIA HẠN TRƯỚC (nếu có):

@@ -56,7 +56,7 @@ export default function HeaderBanner() {
           </div>
           <div>
             <h1 className="text-slate-900 font-black text-sm tracking-tight uppercase group-hover:text-blue-700 transition-colors">
-              ĐẠI LÝ {AGENT_CONFIG.agentName}
+              {AGENT_CONFIG.agentName}
             </h1>
             <p className="text-[10px] text-slate-400 font-medium tracking-wide">
               {AGENT_CONFIG.agentTitle}

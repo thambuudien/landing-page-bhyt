@@ -25,8 +25,7 @@ export default function HeroSection() {
 
         <div className="mt-6 flex flex-wrap justify-center gap-4 text-xs">
           <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-full border border-white/10">
-            <ShieldCheck className="w-4 h-4 text-amber-400" /> Đại lý ủy quyền
-            chính thức
+            <ShieldCheck className="w-4 h-4 text-amber-400" /> Đại lý thu BHXH, BHYT Bưu điện VHX Tự Lập
           </div>
           <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-full border border-white/10">
             <ShieldCheck className="w-4 h-4 text-amber-400" /> Thủ tục Online 5

@@ -38,7 +38,7 @@ export default function HeaderBanner() {
         <div className="container mx-auto max-w-7xl flex flex-col sm:flex-row justify-between items-center gap-1">
           <p className="font-bold tracking-wide uppercase">{AGENT_CONFIG.subHeader}</p>
           <p className="opacity-95 font-light">
-            Phục vụ bà con: <span className="font-semibold">{AGENT_CONFIG.serviceArea}</span>
+            Địa chỉ: <span className="font-semibold">{AGENT_CONFIG.serviceArea}</span>
           </p>
         </div>
       </div>

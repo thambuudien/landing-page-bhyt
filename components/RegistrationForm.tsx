@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Calendar, CheckCircle2, AlertCircle, Copy, Check } from 'lucide-react';
 import { ReminderRecord } from '@/types/bhyt';
 import { AGENT_CONFIG } from '@/config/agent';
+import { sendGAEvent } from '@next/third-parties/google';
 
 interface RegistrationFormProps {
   onSuccess: () => void;
@@ -58,6 +59,13 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
       
       setFullName(''); setBirthDate(''); setBhxhCccd(''); setPhoneNumber('');
       onSuccess();
+       // 🔥 BẮN SỰ KIỆN GHI NHẬN CHUYỂN ĐỔI VỀ GOOGLE ANALYTICS
+       sendGAEvent({ 
+        event: 'buttonClicked', 
+        value: 'submit_bhyt_registration',
+        category: 'Registration',
+        label: 'Đăng ký nhắc hạn BHYT thành công'
+      });
     } catch {
       setFormError('Lỗi kết nối mạng đến cổng API hệ thống.');
     } finally {

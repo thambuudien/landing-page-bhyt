@@ -12,7 +12,7 @@ export default function Footer() {
           {AGENT_CONFIG.branding.copyright}
         </p>
         <p className="text-slate-500">
-          Điểm phục vụ chính thức: {AGENT_CONFIG.serviceArea}.
+          Địa chỉ: {AGENT_CONFIG.serviceArea}.
         </p>
       </div>
 
